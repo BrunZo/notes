@@ -1,0 +1,70 @@
+import Definition from 'zettel/ui/math/definition'
+import Theorem from 'zettel/ui/math/theorem'
+
+export const title = 'Compactness';
+export const sectionNumber = 8;
+
+<Definition title='compact spaces'>
+Let $X$ be a topological space. We say that $X$ is compact if every open cover of $X$ admits a finite subcover.
+</Definition>
+
+<Theorem title='equivalences of compactness'>
+The following are equivalent definitions of compactness over an arbitrary topological space $X$:
+1. every open cover of $X$ admits a finite subcover.
+2. every family of open sets with the FIP has non-empty intersection.
+3. every net has a convergent subnet.
+4. the function $f: X\times Z\to X$ is closed for every space $Z$.
+</Theorem>
+
+The equivalence of 1. and 2. is evident. 
+
+To prove that 1. implies 3., we consider an arbitrary net $(x_\lambda)_{\lambda\in \Lambda}$. Suppose the net doesn't have a convergent subnet. Then, for every $x\in X$, there is some open neighbourhood $U_x$ such that no subnet is eventually contained in $U_x$. This means that the set $A_x = \{\lambda\in\Lambda\mid x_\lambda\in U_x\}$ is not cofinal, which means that there is some $\lambda_x\in \Lambda$ such that there is no $\alpha\in A_x$ with $\lambda_x\le \alpha$. As every open cover has a finite subcover, there is a finite set $x_1, x_2, \ldots, x_n$ such that their corresponding open sets cover all $X$. If we take $\lambda_0 \ge \lambda_{x_1}, \ldots, \lambda_{x_n}$, then there cannot be any $\lambda\ge \lambda_0$ in $\Lambda$. As $\Lambda$ is directed, this means that $\lambda_0$ is an upper bound, and therefore $x_{\lambda_0}$ must be an accumulation point of the net, a contradiction.
+
+To prove that 3. implies 2., we consider an arbitrary family $(F_i)_{i\in\mathcal{I}}$ with the FIP. Thus, for every finite $\mathcal{J}\subseteq\mathcal{I}$ we have some $x_\mathcal{J}\in \bigcap_{j\in\mathcal{J}}{F_j}$. This gives a net $(x_{\mathcal{J}})$ directed by the poset of finite subsets of $\mathcal{I}$, which must have a convergent subnet. Let $x_0$ be the limit point, $x_0\in U$ an arbitrary neighbourhood and $i\in \mathcal{I}$ an arbitrary index. Because every subnet is cofinal, there is some $\mathcal{J}\supseteq \{i\}$ such that $x_\mathcal{J}\in U$, which means that $F_i\cap U\neq \varnothing$. As this assertion is true for every $U$, then $x_0$ is a limit point of $F_i$, which is closed, and thus $x_0\in F_i$. As this is true for every $i\in\mathcal{I}$, we have that $x_0\in\bigcap_{i\in\mathcal{I}}{F_i}$, as desired.
+
+<Definition title='proper maps'>
+A continuous map $f\colon X\to Y$ is **proper** if it is closed and its fibers are compact.
+</Definition>
+
+<Theorem>
+The following definitions of **proper map** are equivalent:
+1. it is closed and its fibers are compact.
+2. preimage of compact sets is compact.
+</Theorem>
+
+<Theorem>
+Composition of proper maps is proper.
+</Theorem>
+
+We can actually put the concept of compactness into a even more general setting, which involves using pullbacks and universally closed maps.
+
+<Definition title='fibered products'>
+Let $X$, $Y$, $Z$ be topological spaces and $f: X\to Z$, $g: Y\to Z$ continuous maps. Then, the **fibered product** of $X$ and $Y$ through $f$ and $g$ is the space
+$$
+X\times Y = \left\{(x, y)\in X\times Y\mid f(x) = g(y)\right\}
+$$
+with the subspace topology.
+</Definition>
+
+<Definition title='pullbacks'>
+Let $X$, $Y$, $Z$ be topological spaces and $f: X\to Z$, $g: Y\to Z$ continuous maps. Then, the **pullback** of $X$ and $Y$ through $f$ and $g$ is the unique space $W$, endowed with projections $\overline{f}\colon W\to Y$ and $\overline{g}\colon W\to X$ such that $f\overline{g} = g\overline{f}$ with the following universal property: for every other space $W'$ endowed with projections $f'\colon W'\to Y$ and $g'\colon W'\to X$ such that $fg' = gf'$, there is a unique continuous function $\varphi\colon W'\to W$ such that $f' = \varphi \overline{f}$ and $g' = \varphi \overline{g}$.
+</Definition>
+
+This is, given an "incomplete" commutative square, the pullback is the missing corner which not only makes the diagram commute, but it is also the closest object which makes the diagram commute.
+
+<Definition title='universally closed maps'>
+A continuous map $f\colon X\to Y$ is universally closed if for every topological space $Z$, the continuous map $f\times\text{id}_Z\colon X\times Z\to Y\times Z$ is closed.
+</Definition>
+
+<Theorem>
+The following definitions of **universally closed map** are equivalent:
+1. for every topological space $Z$, the continuous map $f\times\text{id}_Z\colon X\times Z\to Y\times Z$ is closed.
+2. for every topological space $Z$, if $W$ is the pullback of $X$ and $Z$ through $Y$ with projection $\overline{f}\colon W\to Z$, then $\overline{f}$ is closed.
+</Theorem>
+
+The implication from 2. to 1. is trivial.
+
+
+<Theorem>
+Given a continuous function $f\colon X\to Y$, then $f$ is proper if and only if it is universally closed.
+</Theorem>
