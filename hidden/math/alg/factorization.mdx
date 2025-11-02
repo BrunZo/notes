@@ -1,0 +1,93 @@
+import Theorem from 'zettel/ui/math/theorem';
+import Definition from 'zettel/ui/math/definition';
+
+export const title = "Factorization";
+export const sectionNumber = 22;
+
+### Fundamental theorem of arithmetics
+
+A not-so-natural question which arises is that if the fundamental theorem of arithmetics
+
+<Theorem title="fundamental theorem of arithmetics in \Z">
+Every positive integer $n\ge 2$ admits a factorization into prime numbers, i.e.
+$$
+n = p_1^{\alpha_1}\cdot p_2^{\alpha_2}\cdot\cdots\cdot p_r^{\alpha_r}
+$$
+where $p_1, p_2, \ldots, p_r$ are prime numbers and $\alpha_1, \alpha_2, \ldots, \alpha_r$ are positive integers.
+Moreover, this factorization is unique in the following sense: if there is another factorization $n = q_1^{\beta_1}\cdot q_2^{\beta_2}\cdot\cdots\cdot q_s^{\beta_s}$, then one must have that $r = s$ and that the sets $\{(p_1, \alpha_1), \ldots, (p_r, \alpha_r)\}$ and $\{(q_1, \beta_1), \ldots, (q_s, \beta_s)\}$.
+</Theorem>
+
+still holds for arbitrary rings $R$.
+
+Many great mathematicians believed that the same theorem (with minor tweaks) still hold in those situations. There were many reasons for this:
+
+1. In 1832, Gauss characterized the prime numbers of the ring of Gaussian integers $\Z[i]$, and proved that every composite number in this ring has a unique factorization as a product of these primes, up to multiplication by units.
+
+2. In 1844, Einsenstein introduced the ring $\Z[\omega]$, which also has unique factorization.
+
+Of course the fundamental theorem of algebra is also true in, say, the ring of complex polynomials $\mathbb{C}[x]$ because of another fundamental theorem, and also in the ring of real polynomials $\R[x]$ (this is not trivial). However, we're more interested in generalizing the theorem for "integer rings", which are essentially rings that "contain the structure $\Z$" in some sense.
+
+We must be careful when we talk about "unique factorization" in rings different than $\Z$. For example, one must be tempted to say that
+$$
+25 = 5\times 5 = (-3 + 4i)(-3 - 4i)
+$$
+is a counterexample to unique factorization in $\Z[i]$, as $5$ is prime. The problem is that $5$ is prime **over \Z**, but it is not a prime anymore over $\Z[i]$, as evidenced by
+$$
+5 = (1 + 2i)(1 - 2i)
+$$
+thus, the factorization above is "incomplete" and its factors can be further decomposed. The actual factorization looks like
+$$
+25 = (1 + 2i)^2 (1 - 2i)^2
+$$
+
+Another misleading example is
+$$
+5 = (1 + 2i)(1 - 2i) = (-2 + i)(2 - i)
+$$
+Here, all terms are primes. The problem is that they're not "different primes", since
+$$1 + 2i = i\cdot (2 - i)$$
+where $i$ is a unit. 
+
+This is last example is essentially the same as claiming $6 = 2\cdot 3 = (-2)\cdot (-3)$ is a counterexample to unique factorization, which we know false as we do not take sign into account for the theorem. In the general setting, we must conform with uniqueness up to multiplication by units in the factors. In the integer case, this is equivalent for asking factorization into positive primes, but this becomes trickier in rings which have more than two units.
+
+One could be led because of these examples that adapting a little bit the definition of prime number one would be able to prove a general version of the fundamental theorem of arithmetics. 
+
+<Definition title="prime numbers">
+Given a ring $R$, we say that an element $p$ is a prime number if for every $a, b\in R$ we have that $p\mid ab$ implies either $p\mid a$ or $p\mid b$.
+</Definition>
+
+<Definition title="associate elements">
+Given a ring $R$, we say that two elements $x, y\in R$ are associates, if there is some unit $u\in R^\times$ such that $x = uy$.
+</Definition>
+
+Then we have the following theorem:
+
+<Theorem title="fundamental theorem of arithmetics in arbitrary rings">
+Let $R$ be a ring. Every element $x\neq 0, 1$ admits a factorization into prime elements of $R$, i.e.
+$$
+x = p_1 p_2 \cdots p_r
+$$
+where $p_1, p_2, \ldots, p_r\in R$ are (not necessarily distinct) prime elements.
+
+Moreover, this factorization is unique in the following sense: if there is another factorization $x = q_1\cdot q_2\cdot\cdots\cdot q_s$, then one must have that $r = s$ and that there exists a permutation $\sigma$ of length $r$ and some units $u_1, u_2, \ldots, u_n\in R^\times$ such that $p_{\sigma(i)} = u_i q_i$ for $i = 1, 2, \ldots, r$.
+</Theorem>
+
+The validity of this claim would entail the solution of many very diffcult problems in number theory. Unfortunately, a proof of this claim is impossible, as there's actually a counterexample in the ring $\Z[\sqrt{-5}]$ given by
+$$
+6 = 2\times 3 = (1 - \sqrt{-5}) (1 + \sqrt{-5})
+$$
+To avoid the previously mentioned pitfalls, we must prove that all these factors are prime and that they're not associates of each other.
+
+We can prove all the assertions by using the corresponding norm defined in this ring, which is given by
+$$
+N(a + b\sqrt{-5}) = a^2 + 5b^2
+$$
+ First, as $N(2) = 4$, if $2$ wasn't prime, it would be a product of two elements with norm $2$; but we can easily note that no such element exists. Similarly, we can prove all four terms are prime. Finally, as $N(2) \neq N(1 - \sqrt{-5})$ we can be sure that they cannot be associates of each other.
+
+The falsity of the fundamental theorem of arithmetics in arbitrary rings shows that despite of the many similarities we've already found, the techniques for dealing with an arbitrary ring must be in some way different than the ones used for $\Z$.
+
+<Definition title="unique factorization domains">
+We say that a ring $R$ is a unique factorization domain (UFD), if the above claim holds in $R$.
+</Definition>
+
+We will study the UFD in great details.
