@@ -5,7 +5,6 @@ export const id = "algebra";
 export const title = "Algebra";
 export const abstract = "Algebra is the study of equations and their relations.";
 export const tags = ["math", "algebra"];
-export const date = new Date();
 
 export default async function Topology() {
     const zettels = await filterZettels({
