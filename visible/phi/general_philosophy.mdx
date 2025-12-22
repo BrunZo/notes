@@ -1,0 +1,67 @@
+import { Zettel } from "zettel/lib/proxy";
+
+export const title = "General philosophy";
+export const date = new Date("2025-12-06");
+export const abstract = `Sharing what I think about life and some related matters.`
+export const tags = ["phi", "ideas"];
+
+Carezco de educación formal en filosofía. Es por eso que asumo que probablemente casi nada de lo que escriba sea sensato. Sin embargo, tengo la bondad o el defecto de pensar mucho, y, en consecuencia, querer plasmar mi pensamiento.
+
+Voy a usar esta página cómo índice de lo que escribí al respecto.
+
+## Espacio mental
+
+Cuando reflexiono, me gusta expresarme en el lenguaje del "espacio de la mente" (ver <Zettel.nouns_adjectives_and_sets mode="link" />). La definición sencilla es que el espacio de la mente es el conjunto de "cosas" que podemos "experimentar". La vida (en el sentido de estar vivo) puede caracterizarse como la posibilidad de experimentar los elementos del espacio mental. Sin embargo, este espacio cuenta con un poco de idiosincrasia, según cuáles experiencias nosotros consideramos distintas. Es muy tonto, pero me gusta el siguiente ejemplo:
+
+> Un segmento de línea imaginario que existe en Palermo, y sigue principalmente la traza de la calle Gascón, en donde convergen dos trazados reticulares distintos de la ciudad de Buenos Aires, y por ende, se presentan intersecciones de cinco calles.
+
+Ya que representa muy bien un concepto que "existe" y se puede "experimentar", pero que poca gente debe identificar como un "elemento" del espacio mental. (Es decir, se suele experimentar con los sentidos corporales, pero no con el pensamiento.) El principal motivo por el que uso ese ejemplo es porque justamente es uno de los conceptos que yo identifico en mi espacio mental. (Desde chico juego a memorizar los nombres de las calles, lo cual es más difícil debido a estos escenarios donde no se respeta el diseño cuadriculado, lo que hace que la ocurrencia de estos escenarios ocupen un lugar en mi mente.)
+
+## Productividad y life designing
+Un aspecto de mi filosofía motivado más por lo práctico son mis reflexiones sobre la productividad. Parece una tontería, pero para mí el nacimiento de la productividad puede resumirse en una única frase.
+
+> Todos los días tienen 24 horas. (1)
+
+La productividad es, en cierto sentido, una batalla sana contra este último hecho. Sin embargo, es una "batalla sana", ya que parte del supuesto de que (1) es una verdad inevitable y, en consecuencia, intenta aprovechar esas 24 horas al máximo. La primera consecuencia obvia de (1) es que hay que, como no hay tiempo para hacer todo, necesariamente hay que tomar decisiones. En cierto sentido, el problema de "ser productivos" se reduce a tomar "buenas" decisiones. 
+
+En una escala mayor, tenemos la siguiente afirmación
+
+> La vida humana tiene, en promedio, 80 años. (2)
+
+Análogamente, el life designing es la batalla contra esta última afirmación, es decir, aprovechar los aproximadamente 80 años de vida que tenemos al máximo, realizando las actividades que más placer nos traen. Acá es más evidente que la forma de resolver este "problema" es tomando "buenas" decisiones.
+
+La principal diferencia entre ambos problemas es el plazo, pero ambos problemas a fin de cuentas son el mismo (ser productivo en un día vs. ser productivo en toda la vida). En el primer problema tenemos la ventaja de que los tiempos son mucho menores, y, en consecuencia, no es tan fácil de caer en un problema de localidad (ver <Zettel.global_local mode="link" />). Por esto existen tantos sistemas de productividad y tan pocos "sistemas de vida".
+
+Otro punto en común interesante entre la productividad y el life designing es que su objetivo se puede expresar de una manera muy concreta: "maximizar el [retorno del tiempo invertido](roti)". Sólo esta frase no nos dice nada sobre cómo ser productivos o vivir una buena vida. Sin embargo, nos permite reducir el problema de las decisiones a tres problemas principales.
+
+1. Estimar el beneficio que producirá el resultado de una decisión.
+2. Estimar el tiempo que insumirá realizar la actividad decidida.
+3. Estimar la probabilidad de que ocurra cierto resultado de una decisión.
+
+El conflicto es que los seres humanos somos, por naturaleza, muy malos en los tres aspectos. Por ejemplo, nuestro sistema biológico de recompensas tiende a estimar un beneficio altísimo para las actividades que producen mucha dopamina instantánea, aunque sabemos que  esto a posteriori no es así. También solemos sobrestimar nuestras capacidades, y, en consecuencia, subestimar el tiempo que nos demorará concluir una actividad; o, incluso, muchas veces la ausencia de objetivos claros de una actividad puede causar que nunca la concluyamos. Y por último, es claro que solemos  subestimar las probabilidades bajas y sobrestimar las probabilidades altas.
+
+Si pudiéramos resolver los tres subproblemas, podríamos resolver tanto el problema de la productividad como el problema más general del _life designing_. En efecto, simplemente buscamos maximizar
+$$
+\text{ROTI} = \frac{\sum_{i}{p_i\cdot r_i}}{t}
+$$
+donde $t$ es el tiempo que toma una actividad, la suma está indexada sobre sus posibles resultados, y $p_i$ es la probabilidad de que ocurra el $i$-ésimo resultado y $r_i$ su retorno o beneficio (que es subjetivo y depende de la persona).
+
+Un buen ejemplo de este algoritmo es la decisión de estudiar una carrera universitaria. Esta actividad tiene la particularidad de que debe ser una de las actividades con retorno más alto de nuestras vidas, pero insume un tiempo larguísimo. Entonces, a la respuesta de si hay que "estudiar una carrera", la única respuesta "correcta" consiste en estimar el retorno que nos produciría estudiarla y comparar el retorno sobre tiempo invertido con otras alternativas.
+
+Otro ejemplo donde el retorno y el tiempo son mucho menores, y por lo tanto más bien un problema de productividad, consiste en a qué cosas le dedicamos nuestro pensamiento. Algo que describo con más profundidad en <Zettel.principles_of_life_management mode="link" />.
+
+Para estimar el tiempo que insumirá una actividad, creo que la experiencia es lo suficientemente útil. Para estimar la probabilidad ya hay suficientes modelos estadísticos. Lo que resta es entonces encontrar técnicas para estimar el retorno.
+
+## Problema de la urgencia
+
+Este problema nace del siguiente hecho:
+
+> Siempre existe la posibilidad de que algo que queremos hacer no pueda hacerse en un futuro.
+
+Esto contempla tanto cosas probables como cosas muy improbables. Por ejemplo, .... Yendo al extremo más trágico: siempre existe una ínfima probabilidad de nuestra muerte, lo que impide absolutamente cualquier otra experiencia.
+
+El problema de la urgencia nace de la siguiente observación: es obvio que hay una _urgencia_ latente, ya que postergar una actividad puede hacer que nunca la realicemos. Pero por el otro lado, no podemos vivir todos los días como si fueran el último, porque tomaríamos decisiones que no nos convienen a largo plazo (ver <Zettel.global_local mode="link" />). La pregunta concreta es: ¿cuál es el balance apropiado entre _vivir el presente_ y _planificar el futuro_?
+
+## Perspectiva relativa
+
+TODO
